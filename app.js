@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    console.log('Jquery is working');
+   // console.log('Jquery is working');
     fetchtask();
     let edit = false;
     $('#task-result').hide();
@@ -7,9 +7,10 @@ $(document).ready(function(){
     //Se ejecutará esta función cada vez que se escriba una letra con en el input con id=search
     $('#search').keyup(function(){
         //si la casilla tiene algún valor se hace la busqueda
-        if ($('#search').val()){
+        if ($('#search').val().length >0){
             //se guarda la palabra completa en la variable search
             let search = $('#search').val();
+
            //$.ajax() envía la petición. y la procesa dentro de function(response){}
            $.ajax(
                {
@@ -30,6 +31,9 @@ $(document).ready(function(){
                    }
                }
            )         
+        }
+        else{
+            $('#task-result').hide();
         }
     })
 
